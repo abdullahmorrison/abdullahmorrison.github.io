@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overlays for Twitch — abdullahmorrison</title>
+<meta name="description" content="Free OBS browser-source overlays for Twitch. No download, no login, nothing to install.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+  :root {
+    --bg: #100e16;
+    --panel: #191622;
+    --panel-2: #221e2d;
+    --line: #342e44;
+    --text: #f2eff7;
+    --muted: #a29bb5;
+    --tomato: #e0342a;
+    --credits: #9a6cff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 64px 20px 90px;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(28px, 6vw, 36px);
+    letter-spacing: -0.015em;
+  }
+  .tagline { color: var(--muted); margin: 10px 0 40px; max-width: 52ch; }
+
+  /* Each card carries its own product's colour -- the accent is the only thing that
+     differs between them, so they read as a set rather than two unrelated pages. */
+  .card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 16px;
+    transition: border-color 140ms ease, background 140ms ease, transform 140ms ease;
+  }
+  .card:hover, .card:focus-visible {
+    background: var(--panel-2);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    outline: none;
+  }
+  /* A plain outline rather than a mixed colour: keyboard focus must never depend on a
+     feature the browser might not have. */
+  .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  #tomatod { --accent: var(--tomato); }
+  #credits { --accent: var(--credits); }
+
+  .head { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+  .head img { width: 34px; height: 34px; flex: none; }
+  .head h2 { margin: 0; font-size: 21px; font-weight: 650; }
+
+  .card p { margin: 0; color: var(--muted); }
+  .card code {
+    background: var(--panel-2);
+    padding: 1px 6px;
+    border-radius: 5px;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .go {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .card:hover .go::after,
+  .card:focus-visible .go::after { transform: translateX(3px); }
+  .go::after {
+    content: " →";
+    display: inline-block;
+    transition: transform 140ms ease;
+  }
+
+  footer {
+    margin-top: 34px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 14.5px;
+  }
+  footer p { margin: 0 0 10px; }
+  footer p:last-child { margin-bottom: 0; }
+  footer a { color: #c0a3ff; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card, .go::after { transition: none; }
+    .card:hover, .card:focus-visible { transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Overlays for Twitch</h1>
+  <p class="tagline">
+    Two OBS browser sources. Paste a link in and they work — no download, no login, no
+    account to connect.
+  </p>
+
+  <!-- Same-origin paths, so each card shows the mark the product itself ships and the
+       two can never drift apart. -->
+  <a class="card" id="tomatod" href="/tomatod/">
+    <div class="head">
+      <img src="/tomatod/favicon.svg" alt="" width="34" height="34">
+      <h2>Tomato'd</h2>
+    </div>
+    <p>
+      Let your chat throw tomatoes at you. A mod types <code>!tomato</code>, and for the
+      next thirty seconds anyone saying the magic word hurls one at the screen, where it
+      splatters.
+    </p>
+    <span class="go">Set it up</span>
+  </a>
+
+  <a class="card" id="credits" href="/stream-end-credits/">
+    <div class="head">
+      <img src="/stream-end-credits/favicon.svg" alt="" width="34" height="34">
+      <h2>Stream End Credits</h2>
+    </div>
+    <p>
+      Thank everyone who showed up, as film credits. Watches chat all stream, then rolls
+      your subs, gifters, raiders and cheerers when you switch to your ending scene.
+    </p>
+    <span class="go">Set it up</span>
+  </a>
+
+  <footer>
+    <p>
+      Both read Twitch chat anonymously over WebSocket, so there is no bot account to
+      make and no token to renew. Both are static sites with no backend — free to run and
+      nothing to keep alive.
+    </p>
+    <p>
+      Source:
+      <a href="https://github.com/abdullahmorrison/tomatod">tomatod</a> ·
+      <a href="https://github.com/abdullahmorrison/stream-end-credits">stream-end-credits</a>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
