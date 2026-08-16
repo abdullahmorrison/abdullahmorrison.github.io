@@ -16,6 +16,7 @@
     --muted: #a29bb5;
     --tomato: #e0342a;
     --credits: #9a6cff;
+    --news: #1a8cff;
   }
   * { box-sizing: border-box; }
   body {
@@ -59,6 +60,7 @@
   .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   #tomatod { --accent: var(--tomato); }
   #credits { --accent: var(--credits); }
+  #news { --accent: var(--news); }
 
   .head { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
   .head img { width: 34px; height: 34px; flex: none; }
@@ -110,7 +112,7 @@
 
   <h1>Overlays for Twitch</h1>
   <p class="tagline">
-    Two OBS browser sources. Paste a link in and they work — no download, no login, no
+    Three OBS browser sources. Paste a link in and they work — no download, no login, no
     account to connect.
   </p>
 
@@ -141,16 +143,30 @@
     <span class="go">Set it up</span>
   </a>
 
+  <a class="card" id="news" href="/stream-breaking-news/">
+    <div class="head">
+      <img src="/stream-breaking-news/favicon.svg" alt="" width="34" height="34">
+      <h2>Stream Breaking News</h2>
+    </div>
+    <p>
+      A mod types <code>!breaking</code> and whatever they wrote crawls along the bottom of
+      your stream in a proper cable-news lower third. The headline stays deadpan. The joke
+      is the ticker.
+    </p>
+    <span class="go">Set it up</span>
+  </a>
+
   <footer>
     <p>
-      Both read Twitch chat anonymously over WebSocket, so there is no bot account to
-      make and no token to renew. Both are static sites with no backend — free to run and
-      nothing to keep alive.
+      All three read Twitch chat anonymously over WebSocket, so there is no bot account to
+      make and no token to renew. All three are static sites with no backend — free to run
+      and nothing to keep alive.
     </p>
     <p>
       Source:
       <a href="https://github.com/abdullahmorrison/tomatod">tomatod</a> ·
-      <a href="https://github.com/abdullahmorrison/stream-end-credits">stream-end-credits</a>
+      <a href="https://github.com/abdullahmorrison/stream-end-credits">stream-end-credits</a> ·
+      <a href="https://github.com/abdullahmorrison/stream-breaking-news">stream-breaking-news</a>
     </p>
   </footer>
 

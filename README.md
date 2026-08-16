@@ -10,6 +10,9 @@ Links to:
 - [Stream End Credits](https://abdullahmorrison.github.io/stream-end-credits/) — thank
   everyone who showed up
   ([source](https://github.com/abdullahmorrison/stream-end-credits))
+- [Stream Breaking News](https://abdullahmorrison.github.io/stream-breaking-news/) — a mod
+  types something stupid, it crawls past as breaking news
+  ([source](https://github.com/abdullahmorrison/stream-breaking-news))
 
 One HTML file, no build step. The product marks are pulled from each project's own
 `favicon.svg` over same-origin paths, so they cannot drift out of step with what those
